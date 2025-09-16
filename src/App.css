@@ -1,9 +1,15 @@
 @import "tailwindcss";
 
+
 @theme {
   --color-primary: #1a63ee;
   --color-background: #1a63ee;
   --color-secondary: #d882f6;
   --color-accent: #f249d9;
   --color-text-gray: #969cac;
+
+/* Imports fonts - is also linked in html header. Needs a fallback font or else it wont work */
+--font-oswald: 'Oswald', sans-serif;
+--font-source-sans: 'Source Sans 3', sans-serif;
+
 }
