@@ -1,6 +1,8 @@
 import './App.css'
 import Header from './components/header'
 import Footer from './components/footer'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHouse } from '@fortawesome/free-regular-svg-icons'
 
 function App() {
 
@@ -11,6 +13,7 @@ function App() {
           <Header />
         </div>
         <Footer/>
+      <FontAwesomeIcon size='2xl'  icon={faHouse} />
       </section>
     </div>
   )
