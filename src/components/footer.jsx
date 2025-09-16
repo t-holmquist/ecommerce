@@ -10,8 +10,8 @@ const Footer = () => {
             key={id}
             className='flex cursor-pointer flex-col gap-1 justify-center items-center'
             >
-              <FontAwesomeIcon className={id == 0 ? 'text-blue-500' : 'text-gray-500'} size='xl' icon={icon}/>
-              <p className='text-gray-500 text-sm'>{title}</p>
+              <FontAwesomeIcon className={id == 0 ? 'text-blue-500' : 'text-text-gray'} size='xl' icon={icon}/>
+              <p className='text-text-gray text-sm'>{title}</p>
             </div>
           ))}  
         </div>
