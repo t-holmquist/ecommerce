@@ -7,9 +7,9 @@ import Shufflecard from './components/ui/shufflecard'
 function App() {
 
   return (
-    <div className='min-h-screen w-full flex justify-center items-center bg-linear-to-b from-primary/10 to-accent/5 '>
-      <section className='relative rounded-4xl w-[403px] h-[802px] border border-text-gray bg-linear-to-b from-sky-200 to-indigo-50'>
-        <div className='p-6'>
+    <div className='min-h-screen w-full flex justify-center items-center'>
+      <section className='relative rounded-4xl w-[403px] h-[802px] border border-text-gray z-10 bg-linear-to-b from-primary/20 to-secondary/10'>
+        <div className='flex flex-col gap-6 p-6'>
           <Header />
           <Shufflecard />
         </div>
