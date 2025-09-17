@@ -9,8 +9,8 @@ import { products } from './data/data'
 function App() {
 
   return (
-    <div className='min-h-screen w-full flex justify-center items-center'>
-      <section className='relative overflow-clip shadow-2xl rounded-4xl w-[403px] h-[802px] border border-slate-300 z-10 bg-linear-to-b from-primary/20 to-secondary/10'>
+    <div className='min-h-screen flex justify-center pt-4 custom-svg-bg'>
+      <section className='relative overflow-clip shadow-2xl rounded-4xl w-[403px] h-[790px] border border-slate-300 bg-linear-to-b from-[#c1d3f5] to-[#f3f1f4]'>
         <div className='flex flex-col gap-4 p-3'>
           <Header />
           <Shufflecard />

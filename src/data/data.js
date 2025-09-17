@@ -9,6 +9,7 @@ export const tabItems = [
     {id: 3, icon: faUser, title: 'Profile'},
 ];
 
+// Product class
 export class apparelProduct {
     constructor(id, title, brand, size, color, price, liked=false, imgUrl) {
         this.id = id;
@@ -22,9 +23,11 @@ export class apparelProduct {
     }
 }
 
+
+// Product data
 export const products = [
-    new apparelProduct(0, 'Loose fit tee', 'bareen', 'L', '#1a63ee', 15, false, '/img/banner1.webp'),
-    new apparelProduct(1, 'Mellow Top', 'Planet Nusa', 'M', '#d882f6', 25, false, '/img/banner1.webp'),
-    new apparelProduct(2, 'Golden Shirt', 'Carhartt', 'XL', '#1a63ee', 30, false, '/img/banner1.webp'),
-    new apparelProduct(3, 'Breezy Top', 'Asics', 'M', '#1a63ee', 24, false, '/img/banner1.webp'),
+    new apparelProduct(0, 'Loose fit tee', 'bareen', 'L', '#FB2CE6', 15, false, '/img/productimage1.webp'),
+    new apparelProduct(1, 'Mellow Top', 'Planet Nusa', 'M', '#5C98CA', 25, false, '/img/productimage2.webp'),
+    new apparelProduct(2, 'Golden Shirt', 'Carhartt', 'XL', '#902CFB', 30, false, '/img/productimage3.webp'),
+    new apparelProduct(3, 'Breezy Top', 'Asics', 'M', '#FCD63D', 24, false, '/img/productimage4.webp'),
 ];
