@@ -10,7 +10,7 @@ import { useState } from 'react'
 
 function App() {
 
-  const [cartIsVisible, setCartIsVisible] = useState(true);
+  const [cartIsVisible, setCartIsVisible] = useState(false);
 
 
   return (

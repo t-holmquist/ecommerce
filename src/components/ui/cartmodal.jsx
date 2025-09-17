@@ -13,16 +13,17 @@ const CartModal = ({setCartIsVisible}) => {
         <h1 className='font-oswald text-3xl'>Cart</h1>
       </div>
       {/* Cart items. */}
-      <section className='overflow-y-auto'>
+      <section>
           <div className='flex flex-col gap-4'>
             {cartContent.map(({id, imgUrl, size, color, brand, price, title}) => (
-              <div key={id} className='bg-white relative rounded-2xl p-2'>
+              <div key={id} className='bg-white relative rounded-2xl p-2 shadow'>
                 {/* Delete from cart button */}
                 <button className='absolute cursor-pointer top-2 right-3'>
                   <FontAwesomeIcon color='gray' icon={faX}/>
                 </button>
-                <div className='flex items-center'>
-                  <img width={60} height={60} src="/img/productimage1.webp" alt="" />
+                {/* image and detail text */}
+                <div className='flex items-center gap-3'>
+                  <img width={60} height={60} src={imgUrl} alt="" />
                   <div className='flex flex-col gap-1'>
                     <h2 className='font-oswald text-lg'>{title}</h2>
                     <p className='text-xs font-source-sans'>{brand}</p>
