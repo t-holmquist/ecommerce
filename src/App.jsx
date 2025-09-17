@@ -18,7 +18,7 @@ function App() {
       <section className='relative overflow-clip shadow-2xl rounded-4xl w-[403px] h-[790px] border border-slate-300 bg-linear-to-b from-[#c1d3f5] to-[#f3f1f4]'>
         {/* CartModal is rendered if button on header is pushed */}
         {cartIsVisible && (
-          <CartModal />
+          <CartModal setCartIsVisible={setCartIsVisible} />
         )}
         <div className='flex flex-col gap-4 p-3'>
           <Header setCartIsVisible={setCartIsVisible} />

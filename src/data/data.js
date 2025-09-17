@@ -34,4 +34,10 @@ export const products = [
 
 
 // Cart content. Contains products that are added to the cart
-export const cartContent = [];
+export const cartContent = [
+    new apparelProduct(0, 'Loose fit tee', 'bareen', 'L', '#FB2CE6', 15, false, '/img/productimage1.webp'),
+    new apparelProduct(0, 'Loose fit tee', 'bareen', 'L', '#FB2CE6', 15, false, '/img/productimage1.webp'),
+    new apparelProduct(0, 'Loose fit tee', 'bareen', 'L', '#FB2CE6', 15, false, '/img/productimage1.webp'),
+    new apparelProduct(0, 'Loose fit tee', 'bareen', 'L', '#FB2CE6', 15, false, '/img/productimage1.webp'),
+
+];
