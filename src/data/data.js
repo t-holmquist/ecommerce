@@ -31,3 +31,7 @@ export const products = [
     new apparelProduct(2, 'Golden Shirt', 'Carhartt', 'XL', '#902CFB', 30, false, '/img/productimage3.webp'),
     new apparelProduct(3, 'Breezy Top', 'Asics', 'M', '#FCD63D', 24, false, '/img/productimage4.webp'),
 ];
+
+
+// Cart content. Contains products that are added to the cart
+export const cartContent = [];
