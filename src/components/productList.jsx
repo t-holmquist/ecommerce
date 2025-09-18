@@ -48,7 +48,7 @@ export const ProductList = (
               </div>
             </div>
             {/* The Button gets onclick function with specific product id to get it from the mock database */}
-            <button onClick={() => addToCart(id)} className={'text-xs mt-4 font-source-sans cursor-pointer py-1 px-2 text-white bg-primary w-fit rounded-md'}>Add to cart</button>
+            <button onClick={() => addToCart(id)} className={'text-xs mt-4 font-source-sans cursor-pointer py-1 px-2 text-white bg-black w-fit rounded-md'}>Add to cart</button>
           </div>
         ))}
     </div>

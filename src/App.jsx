@@ -32,7 +32,7 @@ function App() {
             />
         )}
         <div className='flex flex-col gap-4 p-3'>
-          <Header setCartIsVisible={setCartIsVisible} />
+          <Header setCartIsVisible={setCartIsVisible} cartProducts={cartProducts} />
           <Shufflecard />
           <section className='space-y-4'>
             <h2 className='font-oswald text-2xl'>Products</h2>
