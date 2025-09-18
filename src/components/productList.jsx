@@ -1,12 +1,29 @@
-import Button from "./ui/button"
 import LikedHeart from "./ui/LikedHeart"
 
+export const ProductList = (
+  {
+    setCurrentProducts, 
+    currentProducts, 
+    setCartProducts,
+    cartProducts,
+  }) => {
 
-export const ProductList = ({apperalProducts}) => {
+  const addToCart = (id) => {   
+
+    // Get the item to add to card with a specific id that the user pressed on.
+    const itemToAdd = currentProducts.find((product) => product.id == id);
+
+    // Update the cart item state with the item to add
+    setCartProducts([...cartProducts, itemToAdd])
+
+    // Remove the product from the products data to simulate that the stock is empty
+    setCurrentProducts([...currentProducts].filter((item) => item.id != id))
+    
+  }
 
   return (
     <div className="grid grid-cols-2 gap-4">
-        {apperalProducts.map(({id, imgUrl, size, color, brand, price, title}) => (
+        {currentProducts.map(({id, imgUrl, size, color, brand, price, title}) => (
           <div key={id} className="relative rounded-2xl bg-white p-2 shadow">
             <img className="absolute -right-2 bottom-0" src={imgUrl} width={100} height={120} alt="" />
             {/* Header */}
@@ -30,7 +47,8 @@ export const ProductList = ({apperalProducts}) => {
                 <p className="font-semibold font-source-sans text-xs">Price: <span className="font-normal">{`$${price} USD`}</span></p>
               </div>
             </div>
-            <Button classname={'text-xs mt-4'} title="Add to cart"/>
+            {/* The Button gets onclick function with specific product id to get it from the mock database */}
+            <button onClick={() => addToCart(id)} className={'text-xs mt-4 font-source-sans cursor-pointer py-1 px-2 text-white bg-primary w-fit rounded-md'}>Add to cart</button>
           </div>
         ))}
     </div>

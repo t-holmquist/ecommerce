@@ -1,9 +1,33 @@
 import { faArrowLeft, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { cartContent } from '../../data/data';
+import { initialcartContent } from '../../data/data';
 import Button from './button';
 
-const CartModal = ({setCartIsVisible}) => {
+const CartModal = (
+  {
+    setCartIsVisible,
+    setCurrentProducts,
+    currentProducts,
+    setCartProducts,
+    cartProducts,
+
+  }) => {
+
+
+    const removeFromCart = (id) => {   
+
+      // Get the item to add to card with a specific id that the user pressed on.
+      const itemToAddToProducts = cartProducts.find((product) => product.id == id);
+      
+      // Add the cart item to the products so that it is available again.
+      setCurrentProducts([...currentProducts, itemToAddToProducts])
+
+      // Remove the item from the cart
+      setCartProducts([...cartProducts].filter((item) => item.id != id))
+  }
+
+  
+
   return (
     <section className='absolute p-4 space-y-6 inset-0 z-20 bg-linear-to-b from-[#c1d3f5] to-[#f3f1f4]'>
       <div className='flex justify-between items-center gap-4'>
@@ -15,10 +39,10 @@ const CartModal = ({setCartIsVisible}) => {
       {/* Cart items. */}
       <section>
           <div className='flex flex-col gap-4'>
-            {cartContent.map(({id, imgUrl, size, color, brand, price, title}) => (
+            {cartProducts.map(({id, imgUrl, size, color, brand, price, title}) => (
               <div key={id} className='bg-white relative rounded-2xl p-2 shadow'>
                 {/* Delete from cart button */}
-                <button className='absolute cursor-pointer top-2 right-3'>
+                <button onClick={() => removeFromCart(id)} className='absolute cursor-pointer top-2 right-3'>
                   <FontAwesomeIcon color='gray' icon={faX}/>
                 </button>
                 {/* image and detail text */}

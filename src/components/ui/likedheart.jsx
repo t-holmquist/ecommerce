@@ -6,7 +6,7 @@ import { motion } from 'motion/react'
 
 const LikedHeart = () => {
 
-    const [isLiked, setIsLiked] = useState(false)
+  const [isLiked, setIsLiked] = useState(false)
 
   return (
     <motion.button 
