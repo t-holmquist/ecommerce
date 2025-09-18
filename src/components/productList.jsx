@@ -1,6 +1,5 @@
-import { faHeart } from "@fortawesome/free-regular-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Button from "./ui/button"
+import LikedHeart from "./ui/LikedHeart"
 
 
 export const ProductList = ({apperalProducts}) => {
@@ -13,7 +12,7 @@ export const ProductList = ({apperalProducts}) => {
             {/* Header */}
             <div className="flex justify-between items-center">
               <h2 className="font-oswald text-lg">{title}</h2>
-              <FontAwesomeIcon icon={faHeart}/>
+              <LikedHeart />
             </div>
             <div className="flex flex-col gap-1 space-y-2">
               {/* Brand */}
