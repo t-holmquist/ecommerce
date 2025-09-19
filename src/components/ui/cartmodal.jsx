@@ -1,7 +1,7 @@
 import { faArrowLeft, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Button from './button';
 import { useEffect, useState } from 'react';
+import GlareButton from './glarebutton';
 
 const CartModal = (
   {
@@ -90,7 +90,7 @@ const CartModal = (
           <div className='rounded-full bg-linear-to-r bg-slate-200'>
             <img className='relative -left-3 -top-5' width={250} height={250} src="/img/empty.webp" alt="empty cart" />
           </div>
-          <button onClick={() => setCartIsVisible(false)} className='text-lg mt-4 font-source-sans cursor-pointer py-1 px-2 text-white bg-black w-fit rounded-md'>
+          <button onClick={() => setCartIsVisible(false)} className='mt-4 font-source-sans cursor-pointer py-1 px-2 text-white bg-black w-fit rounded-md'>
             Continue shoppping
           </button>
         </div>
@@ -110,7 +110,7 @@ const CartModal = (
           <p className='font-bold'>{`$${totalCartPrice + 15} USD`}</p>
         </div>
       </section>
-      <Button classname={'w-full'} title={'Checkout'}/>
+      <GlareButton title={'Checkout'} />
     </section>
   )
 }
