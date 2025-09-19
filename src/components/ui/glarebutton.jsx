@@ -8,7 +8,7 @@ const GlareButton = (
 
 ) => {
   return (
-    <button className="relative text-xl font-bold w-full text-white  border bg-accent z-10 cursor-default border-brandBorder py-2 rounded-lg">
+    <button className="relative text-xl font-bold w-full text-white  border bg-primary z-10 cursor-default border-brandBorder py-2 rounded-lg">
         <motion.div 
         initial={{
           x: '-130%'

@@ -100,7 +100,7 @@ const CartModal = (
               ease: 'easeInOut'
             }}
             >
-              <FontAwesomeIcon className='text-slate-400' size='3x' icon={faBox}/>
+              <FontAwesomeIcon className='text-primary' size='3x' icon={faBox}/>
             </motion.div>
           </div>
           <button onClick={() => setCartIsVisible(false)} className='mt-4 text-sm font-source-sans cursor-pointer py-1 px-2 text-white bg-black w-fit rounded-md'>
@@ -116,14 +116,17 @@ const CartModal = (
         </div>
         <div className='flex justify-between'>
           <p className='text-text-gray'>Shipping & Tax</p>
-          <p>$15 USD</p>
+          <p>{cartProducts.length > 0 ? '$15 USD' : '$0 USD'}</p>
         </div>
         <div className='flex justify-between'>
           <p className='font-bold'>Total</p>
-          <p className='font-bold'>{`$${totalCartPrice + 15} USD`}</p>
+          {/* If there are products in cart then set price to include the shipping tax fee */}
+          <p className='font-bold'>{`$${totalCartPrice + (cartProducts.length > 0 ? 15 : 0)} USD`}</p>
         </div>
       </section>
-      <GlareButton title={'Checkout'} />
+      {cartProducts.length > 0 && (
+        <GlareButton title={'Checkout'} />
+      )}
     </section>
   )
 }
