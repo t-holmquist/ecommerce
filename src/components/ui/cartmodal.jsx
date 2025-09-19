@@ -46,10 +46,6 @@ const CartModal = (
   }
 
 
-
-
-  
-
   return (
     <section className='absolute p-4 space-y-6 inset-0 z-20 bg-linear-to-b from-[#c1d3f5] to-[#f3f1f4]'>
       <div className='flex justify-between items-center gap-4'>
@@ -58,34 +54,47 @@ const CartModal = (
         </button>
         <h1 className='font-oswald text-3xl'>Cart</h1>
       </div>
-      {/* Cart items. */}
-      <section>
-          <div className='flex flex-col gap-4'>
-            {cartProducts.map(({id, imgUrl, size, color, brand, price, title}) => (
-              <div key={id} className='bg-white relative rounded-2xl p-2 shadow'>
-                {/* Delete from cart button */}
-                <button onClick={() => removeFromCart(id)} className='absolute cursor-pointer top-2 right-3'>
-                  <FontAwesomeIcon color='gray' icon={faX}/>
-                </button>
-                {/* image and detail text */}
-                <div className='flex items-center gap-3'>
-                  <img width={60} height={60} src={imgUrl} alt="" />
-                  <div className='flex flex-col gap-1'>
-                    <h2 className='font-oswald text-lg'>{title}</h2>
-                    <p className='text-xs font-source-sans'>{brand}</p>
-                    <div className="flex items-center gap-2 font-semibold font-source-sans text-xs">
-                      <p>Color: </p>
-                      {/* Tailwind style transpilaton issue causes the need to use inline style for the color. */}
-                      <div style={{backgroundColor: color}} className="rounded-full w-3 h-3 border border-text-gray"></div>
-                      <p className="font-semibold font-source-sans text-xs">Size: <span className="font-normal">{size}</span></p>
-                      <p className="font-semibold font-source-sans text-xs">Price: <span className="font-normal">{`$${price} USD`}</span></p>
+      {/* Cart items renders if it is NOT empty */}
+      {cartProducts.length > 0 ? (
+        <section>
+            <div className='flex flex-col gap-4'>
+              {cartProducts.map(({id, imgUrl, size, color, brand, price, title}) => (
+                <div key={id} className='bg-white relative rounded-2xl p-2 shadow'>
+                  {/* Delete from cart button */}
+                  <button onClick={() => removeFromCart(id)} className='absolute cursor-pointer top-2 right-3'>
+                    <FontAwesomeIcon color='gray' icon={faX}/>
+                  </button>
+                  {/* image and detail text */}
+                  <div className='flex items-center gap-3'>
+                    <img width={60} height={60} src={imgUrl} alt={title} />
+                    <div className='flex flex-col gap-1'>
+                      <h2 className='font-oswald text-lg'>{title}</h2>
+                      <p className='text-xs font-source-sans'>{brand}</p>
+                      <div className="flex items-center gap-2 font-semibold font-source-sans text-xs">
+                        <p>Color: </p>
+                        {/* Tailwind style transpilaton issue causes the need to use inline style for the color. */}
+                        <div style={{backgroundColor: color}} className="rounded-full w-3 h-3 border border-text-gray"></div>
+                        <p className="font-semibold font-source-sans text-xs">Size: <span className="font-normal">{size}</span></p>
+                        <p className="font-semibold font-source-sans text-xs">Price: <span className="font-normal">{`$${price} USD`}</span></p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+        </section>
+      // Empty cart state
+      ) : (
+        <div className='flex flex-col items-center gap-6'>
+          <h1 className='font-oswald text-2xl'>Your cart is empty</h1>
+          <div className='rounded-full bg-linear-to-r bg-slate-200'>
+            <img className='relative -left-3 -top-5' width={250} height={250} src="/img/empty.webp" alt="empty cart" />
           </div>
-      </section>
+          <button onClick={() => setCartIsVisible(false)} className='text-lg mt-4 font-source-sans cursor-pointer py-1 px-2 text-white bg-black w-fit rounded-md'>
+            Continue shoppping
+          </button>
+        </div>
+      )}
       {/* Price calc and checkout */}
       <section className='flex flex-col gap-4 font-source-sans'>
         <div className='flex justify-between'>
