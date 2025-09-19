@@ -52,6 +52,7 @@ const CartModal = (
         <button onClick={() => setCartIsVisible(false)} className='flex cursor-pointer rounded-full w-10 h-10 bg-white items-center justify-center shadow-md'>
           <FontAwesomeIcon size='lg' icon={faArrowLeft}/>
         </button>
+        <p className='font-source-sans'>{cartProducts.length} items total</p>
         <h1 className='font-oswald text-3xl'>Cart</h1>
       </div>
       {/* Cart items renders if it is NOT empty */}

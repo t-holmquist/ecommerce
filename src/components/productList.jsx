@@ -44,7 +44,7 @@ export const ProductList = (
             <motion.li 
             variants={productVariant}
             key={id} className="relative rounded-2xl bg-white p-2 shadow">
-              <img className="absolute -right-2 bottom-0" src={imgUrl} width={100} height={120} alt="" />
+              <img className="absolute -right-2 bottom-0 brightness-110" src={imgUrl} width={100} height={120} alt="" />
               {/* Header */}
               <div className="flex justify-between items-center">
                 <h2 className="font-oswald text-lg">{title}</h2>
@@ -67,7 +67,7 @@ export const ProductList = (
                 </div>
               </div>
               {/* The Button gets onclick function with specific product id to get it from the mock database */}
-              <button onClick={() => addToCart(id)} className={'text-xs mt-4 font-source-sans cursor-pointer py-1 px-2 text-white bg-black w-fit rounded-md'}>Add to cart</button>
+              <button onClick={() => addToCart(id)} className={'text-xs mt-4 font-source-sans cursor-pointer py-1 px-2 text-white bg-black hover:bg-slate-700 w-fit rounded-md'}>Add to cart</button>
             </motion.li>
           ))}
       </motion.ul>

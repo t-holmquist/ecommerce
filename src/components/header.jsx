@@ -8,7 +8,7 @@ const Header = ({setCartIsVisible, cartProducts}) => {
   return (
     <div className='flex items-center gap-2 justify-between'>
         <SearchBar />
-        <button onClick={() => setCartIsVisible(true)} className='relative flex z-10 items-center justify-center cursor-pointer rounded-full bg-white w-12 h-12'>
+        <button onClick={() => setCartIsVisible(true)} className='relative hover:bg-slate-50 flex z-10 items-center justify-center cursor-pointer rounded-full bg-white w-12 h-12'>
           <FontAwesomeIcon size='lg' icon={faShoppingCart}/>
           {/* Cart item counter. If there is more than one item then display counter */}
           {cartProducts.length > 0 && (

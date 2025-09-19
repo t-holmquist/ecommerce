@@ -27,9 +27,9 @@ export class apparelProduct {
 
 // Product data
 export const initialProducts = [
-    new apparelProduct(0, 'Loose fit tee', 'bareen', 'L', '#FB2CE6', 15, false, '/img/productimage1.webp'),
-    new apparelProduct(1, 'Mellow Top', 'Planet Nusa', 'M', '#5C98CA', 25, false, '/img/productimage2.webp'),
-    new apparelProduct(2, 'Golden Shirt', 'Carhartt', 'XL', '#902CFB', 30, false, '/img/productimage3.webp'),
+    new apparelProduct(0, 'Loose fit tee', 'bareen', 'L', '#FFF', 15, false, '/img/productimage1.webp'),
+    new apparelProduct(1, 'Mellow Top', 'Planet Nusa', 'M', '#5E7C7F', 25, false, '/img/productimage2.webp'),
+    new apparelProduct(2, 'Golden Shirt', 'Carhartt', 'XL', '#C9BBD5', 30, false, '/img/productimage3.webp'),
     new apparelProduct(3, 'Breezy Top', 'Asics', 'M', '#FCD63D', 24, false, '/img/productimage4.webp'),
 ];
 
