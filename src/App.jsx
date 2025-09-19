@@ -19,7 +19,7 @@ function App() {
   const [cartProducts, setCartProducts] = useState(initialcartContent);
 
   return (
-    <div className='min-h-screen flex justify-center pt-4 custom-svg-bg'>
+    <div className='min-h-screen flex justify-center pt-8 custom-svg-bg'>
       <section className='relative overflow-clip shadow-2xl rounded-4xl w-[403px] h-[790px] border border-slate-400 bg-linear-to-b from-[#c1d3f5] to-[#f3f1f4]'>
         {/* CartModal is rendered if button on header is pushed */}
         {cartIsVisible && (

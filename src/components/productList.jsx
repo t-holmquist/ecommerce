@@ -11,7 +11,9 @@ export const ProductList = (
 
   const containerVariant = {
     visible: {
-      transition: {staggerChildren: 0.1}
+      transition: {
+        staggerChildren: 0.1,
+      }
     },
     hidden: {}
   }
@@ -43,16 +45,17 @@ export const ProductList = (
           {currentProducts.map(({id, imgUrl, size, color, brand, price, title}) => (
             <motion.li 
             variants={productVariant}
-            key={id} className="relative rounded-2xl bg-white p-2 shadow">
+            key={id} 
+            className="relative shadow rounded-2xl bg-white p-2">
               <img className="absolute -right-2 bottom-0 brightness-110" src={imgUrl} width={100} height={120} alt="" />
               {/* Header */}
               <div className="flex justify-between items-center">
                 <h2 className="font-oswald text-lg">{title}</h2>
                 <LikedHeart />
               </div>
-              <div className="flex flex-col gap-1 space-y-2">
+              <div className="flex flex-col gap-1 space-y-3">
                 {/* Brand */}
-                <div className="rounded-sm border px-1 w-fit border-slate-300">
+                <div className="rounded-sm border mt-1 px-1 w-fit border-slate-300">
                   <p className=" font-source-sans text-xs">{brand}</p>
                 </div>
                 {/* Details */}

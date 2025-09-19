@@ -91,8 +91,8 @@ const CartModal = (
           <h1 className='font-oswald text-2xl'>Your cart is empty</h1>
           <div className='flex items-center justify-center rounded-full bg-linear-to-r bg-slate-200 w-36 h-36'>
             <motion.div
-            initial={{y: -5}}
-            animate={{y: 5}}
+            initial={{y: -4}}
+            animate={{y: 4}}
             transition={{
               repeat: Infinity,
               repeatType: 'reverse',
