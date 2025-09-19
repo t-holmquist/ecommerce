@@ -57,9 +57,9 @@ const CartModal = (
       {/* Cart items renders if it is NOT empty */}
       {cartProducts.length > 0 ? (
         <section>
-            <div className='flex flex-col gap-4'>
+            <ul className='flex flex-col gap-4'>
               {cartProducts.map(({id, imgUrl, size, color, brand, price, title}) => (
-                <div key={id} className='bg-white relative rounded-2xl p-2 shadow'>
+                <li key={id} className='bg-white relative rounded-2xl p-2 shadow'>
                   {/* Delete from cart button */}
                   <button onClick={() => removeFromCart(id)} className='absolute cursor-pointer top-2 right-3'>
                     <FontAwesomeIcon color='gray' icon={faX}/>
@@ -79,9 +79,9 @@ const CartModal = (
                       </div>
                     </div>
                   </div>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
         </section>
       // Empty cart state
       ) : (
