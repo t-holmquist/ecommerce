@@ -1,7 +1,7 @@
 import { faArrowLeft, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { initialcartContent } from '../../data/data';
 import Button from './button';
+import { useEffect, useState } from 'react';
 
 const CartModal = (
   {
@@ -12,6 +12,25 @@ const CartModal = (
     cartProducts,
 
   }) => {
+
+
+    // Tracks the total cart price 
+    const [totalCartPrice, setTotalCartPrice] = useState(0)
+
+    // Checks price and update the totalCartPrice depending on changes in the products in the cart
+    useEffect(() => {
+
+      let totalItemCost = 0;
+
+      cartProducts.forEach((item) => {
+        
+        totalItemCost += item.price
+
+      })
+
+      setTotalCartPrice(totalItemCost)
+
+    }, [cartProducts])
 
 
     const removeFromCart = (id) => {   
@@ -25,6 +44,9 @@ const CartModal = (
       // Remove the item from the cart
       setCartProducts([...cartProducts].filter((item) => item.id != id))
   }
+
+
+
 
   
 
@@ -64,20 +86,19 @@ const CartModal = (
             ))}
           </div>
       </section>
-       {/* TODO: Check current cart items (not from the map function) and calculate the price of all the items  */}
       {/* Price calc and checkout */}
       <section className='flex flex-col gap-4 font-source-sans'>
         <div className='flex justify-between'>
           <p className='text-text-gray'>Sub total</p>
-          <p>1234</p>
+          <p>{`$${totalCartPrice} USD`}</p>
         </div>
         <div className='flex justify-between'>
           <p className='text-text-gray'>Shipping & Tax</p>
-          <p>15</p>
+          <p>$15 USD</p>
         </div>
         <div className='flex justify-between'>
-          <p>Total</p>
-          <p>1400</p>
+          <p className='font-bold'>Total</p>
+          <p className='font-bold'>{`$${totalCartPrice + 15} USD`}</p>
         </div>
       </section>
       <Button classname={'w-full'} title={'Checkout'}/>

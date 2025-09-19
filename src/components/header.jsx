@@ -1,4 +1,3 @@
-import React from 'react'
 import SearchBar from './ui/searchbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
