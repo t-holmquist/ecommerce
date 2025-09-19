@@ -1,1 +1,1 @@
-Simple e-commerce project using React, bootstrapped with Vite
+E-commerce hobby project using React - simulated app application
