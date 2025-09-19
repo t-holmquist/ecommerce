@@ -1,7 +1,8 @@
-import { faArrowLeft, faX } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faBox, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import GlareButton from './glarebutton';
+import { motion } from 'motion/react';
 
 const CartModal = (
   {
@@ -62,8 +63,8 @@ const CartModal = (
               {cartProducts.map(({id, imgUrl, size, color, brand, price, title}) => (
                 <li key={id} className='bg-white relative rounded-2xl p-2 shadow'>
                   {/* Delete from cart button */}
-                  <button onClick={() => removeFromCart(id)} className='absolute cursor-pointer top-2 right-3'>
-                    <FontAwesomeIcon color='gray' icon={faX}/>
+                  <button onClick={() => removeFromCart(id)} className='absolute bg-slate-200 w-6 h-6 hover:bg-red-500 hover:text-white rounded-md cursor-pointer top-2 right-3'>
+                    <FontAwesomeIcon size='xs' icon={faX}/>
                   </button>
                   {/* image and detail text */}
                   <div className='flex items-center gap-3'>
@@ -88,10 +89,21 @@ const CartModal = (
       ) : (
         <div className='flex flex-col items-center gap-6'>
           <h1 className='font-oswald text-2xl'>Your cart is empty</h1>
-          <div className='rounded-full bg-linear-to-r bg-slate-200'>
-            <img className='relative -left-3 -top-5' width={250} height={250} src="/img/empty.webp" alt="empty cart" />
+          <div className='flex items-center justify-center rounded-full bg-linear-to-r bg-slate-200 w-36 h-36'>
+            <motion.div
+            initial={{y: -5}}
+            animate={{y: 5}}
+            transition={{
+              repeat: Infinity,
+              repeatType: 'reverse',
+              duration: 2,
+              ease: 'easeInOut'
+            }}
+            >
+              <FontAwesomeIcon className='text-slate-400' size='3x' icon={faBox}/>
+            </motion.div>
           </div>
-          <button onClick={() => setCartIsVisible(false)} className='mt-4 font-source-sans cursor-pointer py-1 px-2 text-white bg-black w-fit rounded-md'>
+          <button onClick={() => setCartIsVisible(false)} className='mt-4 text-sm font-source-sans cursor-pointer py-1 px-2 text-white bg-black w-fit rounded-md'>
             Continue shoppping
           </button>
         </div>
