@@ -47,7 +47,7 @@ export const ProductList = (
             variants={productVariant}
             key={id} 
             className="relative shadow rounded-2xl bg-white p-2">
-              <img className="absolute -right-2 bottom-0 brightness-110" src={imgUrl} width={100} height={120} alt="" />
+              <img className="absolute -right-2 bottom-0 brightness-110" src={imgUrl} width={100} height={120} alt={title} />
               {/* Header */}
               <div className="flex justify-between items-center">
                 <h2 className="font-oswald text-lg">{title}</h2>
