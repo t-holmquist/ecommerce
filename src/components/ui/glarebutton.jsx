@@ -8,21 +8,21 @@ const GlareButton = (
 
 ) => {
   return (
-    <button className="relative text-xl font-bold w-full text-white  border bg-primary z-10 cursor-default border-brandBorder py-2 rounded-lg">
+    <button className="relative text-xl font-bold w-full shadow-lg text-white overflow-clip bg-primary z-10 cursor-default py-2 rounded-lg">
         <motion.div 
         initial={{
-          x: '-130%'
+          x: '-115%'
         }}
         animate={{
-          x: '220%'
+          x: '110%'
         }}
         transition={{
-          duration: 4,
+          duration: 3,
           ease: 'easeInOut',
           repeat: Infinity,
           
         }}
-        className="absolute top-0 left-0 w-full h-full bg-slate-100 opacity-60 blur-2xl"/>
+        className="absolute top-0 left-0 w-full h-full opacity-70 blur-2xl bg-slate-50 "/>
         <p className={`${titleClassname}`}>{title}</p>
       </button>
   )
