@@ -6,6 +6,7 @@ import ProductList from './components/productList'
 import CartModal from './components/ui/cartmodal'
 import { useState } from 'react'
 import { initialcartContent, initialProducts } from './data/data'
+import ProjectInfo from './components/projectInfo'
 
 
 
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <div className='min-h-screen flex justify-center pt-8 custom-svg-bg'>
+      <ProjectInfo />
       <section className='relative overflow-clip shadow-2xl rounded-4xl w-[403px] h-[790px] border border-slate-400 bg-linear-to-b from-[#c1d3f5] to-[#f3f1f4]'>
         {/* CartModal is rendered if button on header is pushed */}
         {cartIsVisible && (

@@ -2,7 +2,7 @@ import { faArrowLeft, faBox, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import GlareButton from './glarebutton';
-import { motion } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 
 const CartModal = (
   {
@@ -57,32 +57,36 @@ const CartModal = (
         <h1 className='font-oswald text-3xl'>Cart</h1>
       </div>
       {/* Cart items renders if it is NOT empty */}
+      <AnimatePresence>
       {cartProducts.length > 0 ? (
         <section>
             <ul className='flex flex-col gap-4'>
-              {cartProducts.map(({id, imgUrl, size, color, brand, price, title}) => (
-                <li key={id} className='bg-white relative rounded-2xl p-2 shadow'>
-                  {/* Delete from cart button */}
-                  <button onClick={() => removeFromCart(id)} className='absolute bg-slate-200 w-6 h-6 hover:bg-red-500 hover:text-white rounded-md cursor-pointer top-2 right-3'>
-                    <FontAwesomeIcon size='xs' icon={faX}/>
-                  </button>
-                  {/* image and detail text */}
-                  <div className='flex items-center gap-3'>
-                    <img width={60} height={60} src={imgUrl} alt={title} />
-                    <div className='flex flex-col gap-1'>
-                      <h2 className='font-oswald text-lg'>{title}</h2>
-                      <p className='text-xs font-source-sans'>{brand}</p>
-                      <div className="flex items-center gap-2 font-semibold font-source-sans text-xs">
-                        <p>Color: </p>
-                        {/* Tailwind style transpilaton issue causes the need to use inline style for the color. */}
-                        <div style={{backgroundColor: color}} className="rounded-full w-3 h-3 border border-text-gray"></div>
-                        <p className="font-semibold font-source-sans text-xs">Size: <span className="font-normal">{size}</span></p>
-                        <p className="font-semibold font-source-sans text-xs">Price: <span className="font-normal">{`$${price} USD`}</span></p>
+                {cartProducts.map(({id, imgUrl, size, color, brand, price, title}) => (
+                  <motion.li 
+                  exit={{opacity: 0, y: 10}}
+                  layout
+                  key={id} className='bg-white relative rounded-2xl p-2 shadow'>
+                    {/* Delete from cart button */}
+                    <button onClick={() => removeFromCart(id)} className='absolute bg-slate-200 w-6 h-6 hover:bg-red-500 hover:text-white rounded-md cursor-pointer top-2 right-3'>
+                      <FontAwesomeIcon size='xs' icon={faX}/>
+                    </button>
+                    {/* image and detail text */}
+                    <div className='flex items-center gap-3'>
+                      <img width={60} height={60} src={imgUrl} alt={title} />
+                      <div className='flex flex-col gap-1'>
+                        <h2 className='font-oswald text-lg'>{title}</h2>
+                        <p className='text-xs font-source-sans'>{brand}</p>
+                        <div className="flex items-center gap-2 font-semibold font-source-sans text-xs">
+                          <p>Color: </p>
+                          {/* Tailwind style transpilaton issue causes the need to use inline style for the color. */}
+                          <div style={{backgroundColor: color}} className="rounded-full w-3 h-3 border border-text-gray"></div>
+                          <p className="font-semibold font-source-sans text-xs">Size: <span className="font-normal">{size}</span></p>
+                          <p className="font-semibold font-source-sans text-xs">Price: <span className="font-normal">{`$${price} USD`}</span></p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
-              ))}
+                  </motion.li>
+                ))}
             </ul>
         </section>
       // Empty cart state
@@ -108,25 +112,28 @@ const CartModal = (
           </button>
         </div>
       )}
+      </AnimatePresence>
       {/* Price calc and checkout */}
-      <section className='flex flex-col gap-4 font-source-sans'>
-        <div className='flex justify-between'>
-          <p className='text-text-gray'>Sub total</p>
-          <p>{`$${totalCartPrice} USD`}</p>
-        </div>
-        <div className='flex justify-between'>
-          <p className='text-text-gray'>Shipping & Tax</p>
-          <p>{cartProducts.length > 0 ? '$15 USD' : '$0 USD'}</p>
-        </div>
-        <div className='flex justify-between'>
-          <p className='font-bold'>Total</p>
-          {/* If there are products in cart then set price to include the shipping tax fee */}
-          <p className='font-bold'>{`$${totalCartPrice + (cartProducts.length > 0 ? 15 : 0)} USD`}</p>
-        </div>
-      </section>
-      {cartProducts.length > 0 && (
-        <GlareButton title={'Checkout'} />
-      )}
+      <motion.div layout>
+        <section className='flex flex-col gap-4 font-source-sans'>
+          <div className='flex justify-between'>
+            <p className='text-text-gray'>Sub total</p>
+            <p>{`$${totalCartPrice} USD`}</p>
+          </div>
+          <div className='flex justify-between'>
+            <p className='text-text-gray'>Shipping & Tax</p>
+            <p>{cartProducts.length > 0 ? '$15 USD' : '$0 USD'}</p>
+          </div>
+          <div className='flex justify-between'>
+            <p className='font-bold'>Total</p>
+            {/* If there are products in cart then set price to include the shipping tax fee */}
+            <p className='font-bold'>{`$${totalCartPrice + (cartProducts.length > 0 ? 15 : 0)} USD`}</p>
+          </div>
+        </section>
+        {cartProducts.length > 0 && (
+          <GlareButton title={'Checkout'} />
+        )}
+      </motion.div>
     </section>
   )
 }
