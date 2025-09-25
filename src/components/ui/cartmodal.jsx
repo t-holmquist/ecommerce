@@ -48,13 +48,13 @@ const CartModal = (
 
 
   return (
-    <section className='absolute p-4 space-y-6 inset-0 z-20 bg-linear-to-b from-[#c1d3f5] to-[#f3f1f4]'>
+    <section className='absolute p-4 space-y-6 inset-0 z-20 bg-linear-to-b from-[#c1d3f5] to-[#f3f1f4] dark:from-[#020512] dark:to-[#091a3c]'>
       <div className='flex justify-between items-center gap-4'>
         <button onClick={() => setCartIsVisible(false)} className='flex cursor-pointer rounded-full w-10 h-10 bg-white items-center justify-center shadow-md'>
           <FontAwesomeIcon size='lg' icon={faArrowLeft}/>
         </button>
-        <p className='font-source-sans'>{cartProducts.length} items total</p>
-        <h1 className='font-oswald text-3xl'>Cart</h1>
+        <p className='font-source-sans dark:text-white'>{cartProducts.length} items total</p>
+        <h1 className='font-oswald text-3xl dark:text-white'>Cart</h1>
       </div>
       {/* Cart items renders if it is NOT empty */}
       <AnimatePresence>
@@ -65,9 +65,9 @@ const CartModal = (
                   <motion.li 
                   exit={{opacity: 0, y: 10}}
                   layout
-                  key={id} className='bg-white relative rounded-2xl p-2 shadow'>
+                  key={id} className='bg-white dark:bg-slate-800 dark:border dark:border-slate-600 dark:text-white relative rounded-2xl p-2 shadow'>
                     {/* Delete from cart button */}
-                    <button onClick={() => removeFromCart(id)} className='absolute bg-slate-200 w-6 h-6 hover:bg-red-500 hover:text-white rounded-md cursor-pointer top-2 right-3'>
+                    <button onClick={() => removeFromCart(id)} className='absolute bg-slate-200 dark:bg-transparent dark:border dark:border-slate-600 w-6 h-6 hover:bg-red-500 hover:text-white rounded-md cursor-pointer top-2 right-3'>
                       <FontAwesomeIcon size='xs' icon={faX}/>
                     </button>
                     {/* image and detail text */}
@@ -92,7 +92,7 @@ const CartModal = (
       // Empty cart state
       ) : (
         <div className='flex flex-col items-center gap-6'>
-          <h1 className='font-oswald text-2xl'>Your cart is empty</h1>
+          <h1 className='font-oswald text-2xl dark:text-white'>Your cart is empty</h1>
           <div className='flex items-center justify-center rounded-full bg-linear-to-r bg-slate-200 w-36 h-36'>
             <motion.div
             initial={{y: -4}}
@@ -107,7 +107,7 @@ const CartModal = (
               <FontAwesomeIcon className='text-primary' size='3x' icon={faBox}/>
             </motion.div>
           </div>
-          <button onClick={() => setCartIsVisible(false)} className='mt-4 text-sm font-source-sans cursor-pointer py-1 px-2 text-white bg-black w-fit rounded-md'>
+          <button onClick={() => setCartIsVisible(false)} className='mt-4 text-sm font-source-sans cursor-pointer py-1 px-2 text-white bg-black dark:bg-white dark:text-black w-fit rounded-md'>
             Continue shoppping
           </button>
         </div>
@@ -118,21 +118,23 @@ const CartModal = (
         <section className='flex flex-col gap-4 font-source-sans'>
           <div className='flex justify-between'>
             <p className='text-text-gray'>Sub total</p>
-            <p>{`$${totalCartPrice} USD`}</p>
+            <p className='dark:text-white'>{`$${totalCartPrice} USD`}</p>
           </div>
           <div className='flex justify-between'>
             <p className='text-text-gray'>Shipping & Tax</p>
-            <p>{cartProducts.length > 0 ? '$15 USD' : '$0 USD'}</p>
+            <p className='dark:text-white'>{cartProducts.length > 0 ? '$15 USD' : '$0 USD'}</p>
           </div>
           <div className='flex justify-between'>
-            <p className='font-bold'>Total</p>
+            <p className='font-bold dark:text-white'>Total</p>
             {/* If there are products in cart then set price to include the shipping tax fee */}
-            <p className='font-bold'>{`$${totalCartPrice + (cartProducts.length > 0 ? 15 : 0)} USD`}</p>
+            <p className='font-bold dark:text-white'>{`$${totalCartPrice + (cartProducts.length > 0 ? 15 : 0)} USD`}</p>
           </div>
         </section>
-        {cartProducts.length > 0 && (
-          <GlareButton title={'Checkout'} />
-        )}
+        <div className='mt-5'>
+          {cartProducts.length > 0 && (
+            <GlareButton title={'Checkout'} />
+          )}
+        </div>
       </motion.div>
     </section>
   )

@@ -20,9 +20,9 @@ function App() {
   const [cartProducts, setCartProducts] = useState(initialcartContent);
 
   return (
-    <div className='min-h-screen flex justify-center pt-8 custom-svg-bg'>
+    <div className='min-h-screen flex justify-center pt-8 custom-svg-bg bg-white dark:bg-slate-800'>
       <ProjectInfo />
-      <section className='relative overflow-clip shadow-2xl rounded-4xl w-[403px] h-[790px] border border-slate-400 bg-linear-to-b from-[#c1d3f5] to-[#f3f1f4]'>
+      <section className='relative overflow-clip shadow-2xl rounded-4xl w-[403px] h-[798px] border border-slate-400 bg-linear-to-b from-[#c1d3f5] to-[#f3f1f4] dark:from-[#020512] dark:to-[#091a3c]'>
         {/* CartModal is rendered if button on header is pushed */}
         {cartIsVisible && (
           <CartModal 
@@ -37,7 +37,7 @@ function App() {
           <Header setCartIsVisible={setCartIsVisible} cartProducts={cartProducts} />
           <Shufflecard />
           <section className='space-y-4'>
-            <h2 className='font-oswald text-2xl'>Products</h2>
+            <h2 className='font-oswald text-2xl dark:text-white'>Products</h2>
             {/* ProductList can change contents of product and cart data */}
             <ProductList 
               setCurrentProducts={setCurrentProducts} currentProducts={currentProducts}

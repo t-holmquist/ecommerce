@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Footer = () => {
   return (
-    <footer className='absolute bottom-0 rounded-b-4xl p-4 w-full bg-white '>
+    <footer className='absolute bottom-0 rounded-b-4xl p-4 w-full bg-white dark:bg-black dark:border-t dark:border-slate-600 '>
         <div className='flex justify-between px-4'>
           {tabItems.map(({id, icon, title}) => (
             <div 

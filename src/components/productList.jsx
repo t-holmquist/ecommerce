@@ -51,7 +51,7 @@ export const ProductList = (
               // The layout prop animated the cards fluidly when siblings disappear
               layout
               key={id} 
-              className="relative shadow rounded-2xl bg-white p-2">
+              className="relative shadow rounded-2xl bg-white dark:bg-slate-800 dark:border dark:border-slate-600 dark:text-white p-2">
                 <img className="absolute -right-2 bottom-0 brightness-110" src={imgUrl} width={100} height={120} alt={title} />
                 {/* Header */}
                 <div className="flex justify-between items-center">
@@ -75,7 +75,7 @@ export const ProductList = (
                   </div>
                 </div>
                 {/* The Button gets onclick function with specific product id to get it from the mock database */}
-                <button onClick={() => addToCart(id)} className={'text-xs mt-4 font-source-sans cursor-pointer py-1 px-2 text-white bg-black hover:bg-slate-700 w-fit rounded-md'}>Add to cart</button>
+                <button onClick={() => addToCart(id)} className={'text-xs mt-4 font-source-sans cursor-pointer py-1 px-2 text-white bg-black dark:bg-white dark:text-black hover:bg-slate-700 dark:hover:bg-slate-300 w-fit rounded-md'}>Add to cart</button>
               </motion.li>
             ))}
           </AnimatePresence>
