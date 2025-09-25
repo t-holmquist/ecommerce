@@ -34,7 +34,7 @@ const ProjectInfo = () => {
                 animate={{opacity: 1, y: 0}}
                 exit={{opacity: 0, y: 10}}
                 className='rounded-2xl space-y-3 backdrop-blur-[2px] dark:text-white max-w-md w-full p-4 border border-text-gray shadow-lg'>
-                    <h2 className='text-xl font-oswald'>Hobby project</h2>
+                    <h2 className='text-xl font-oswald'>E-commerce hobby project</h2>
                     <p className='font-source-sans text-sm font-semibold'>Functionality highlights:</p>
                     <ul className='flex flex-col gap-1 font-source-sans text-sm'>
                         {highlights.map((highlight, idx) => (

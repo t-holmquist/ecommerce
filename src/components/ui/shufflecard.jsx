@@ -1,5 +1,6 @@
 import Button from "./button"
 import { motion } from "motion/react"
+import GlareButton from "./glarebutton"
 
 const Shufflecard = () => {
   return (
@@ -10,7 +11,7 @@ const Shufflecard = () => {
         <div className='flex flex-col gap-4 max-w-[60%]'>
             <h1 className='font-oswald text-3xl text-white'>JUST ARRIVED</h1>
             <p className='text-white font-source-sans'>Dance like this guy in our new two-piece red super-suit</p>
-            <Button title="Shop now" />
+            <GlareButton titleClassname={"text-sm"} title={"Show more"} />
             <img className='absolute bottom-0 right-0 brightness-110' width={170} height={200} src="/img/Tenor-unscreen.gif" alt="model with tshirt" />
         </div>
     </motion.div>
