@@ -24,7 +24,7 @@ export const Switch = () => {
   return (
     <div className="flex items-center gap-1.5">
       <p className='text-sm font-source-sans dark:text-white'>Light</p>
-      <button onClick={handleToggleDarkMode} className={`flex cursor-pointer ${isDark ? 'bg-primary' : 'bg-slate-600'} items-center px-1 w-10 h-5 rounded-full`}
+      <button onClick={handleToggleDarkMode} className={`flex cursor-pointer ${isDark ? 'bg-primary border border-slate-500' : 'bg-slate-600'} items-center px-1 w-10 h-5 rounded-full`}
       style={{
         justifyContent: isDark ? "flex-end" : "flex-start"
       }}

@@ -48,7 +48,7 @@ const CartModal = (
 
 
   return (
-    <section className='absolute p-4 space-y-6 inset-0 z-20 bg-linear-to-b from-[#c1d3f5] to-[#f3f1f4] dark:from-[#020512] dark:to-[#091a3c]'>
+    <section className='absolute p-4 space-y-6 inset-0 z-20 bg-linear-to-b from-[#c1d3f5] to-[#f3f1f4] dark:from-[#062334] dark:to-[#091a3c]'>
       <div className='flex justify-between items-center gap-4'>
         <button onClick={() => setCartIsVisible(false)} className='flex cursor-pointer rounded-full w-10 h-10 bg-white items-center justify-center shadow-md'>
           <FontAwesomeIcon size='lg' icon={faArrowLeft}/>
